@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span4">
+            <!--Sidebar content-->
+            <div class="sidebar_admin">
+                <ul class="nav nav-tabs nav-stacked">
+                    <li><a href="<?php  echo $this->url('zfcadmin/attraction');?>">Достопримечательности</a></li>
+                    <li><a href="<?php  echo $this->url('zfcadmin/transport');?>">Транспорт</a></li>
+                    <li><a href="<?php echo $this->url('zfcadmin/restaurants');?>"><b>Рестораны/Кафе</b></a></li>
+                    <li><a>Клубы</a></li>
+                    <li><a>Активный отдых</a></li>
+                    <li><a>Шопинг</a></li>
+                    <li><a>Здоровье и спорт</a></li>
+                    <li><a href="<?php echo $this->url('zfcadmin/hostels');?>">Гостиницы/минигостиницы</a></li>
+                    <li><a>Частный сектор</a></li>
+                    <li><a>Справочные и аварийные службы </a></li>
+                    <li><a>Aфиша</a></li>
+                    <li><a>Геолокации</a></li>
+                    <li><a>Личные кабинеты</a></li>
+                </ul>
+            </div>
+            <!--Sidebar content-->
+        </div>
+        <div class="span8">
+            <!--Body content-->
+            <h4>Рестораны</h4>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+
+                    <th>Имя гостиницы</th>
+                    <th>Описание гостиницы</th>
+                    <th>Рисунок гостиницы</th>
+                    <th>Описания гостиницы</th>
+                    <th>Количевство звезд у гостиницы</th>
+                    <th>Возможности гостиницы</th>
+                    <th>Сайт</th>
+                    <th>Адресс</th>
+                    <th>Телефон</th>
+                    <th>Рабочее время</th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach($hostels as $hostel): ?>
+                    <tr>
+                        <td></td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+            <!--Body content-->
+        </div>
+        <div class="span6">
+            <a class="btn btn-primary" href="<?php echo $this->url('zfcadmin/hostels/add');?>">Добавить гостиницу</a>
+        </div>
+    </div>
+</div>

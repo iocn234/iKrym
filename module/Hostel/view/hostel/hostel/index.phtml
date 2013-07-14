@@ -1,0 +1,32 @@
+<?php echo $topview; ?>
+<?php echo $navigation; ?>
+<div class="row-fluid">
+    <div class="span3 attraction_category">
+        <?php echo $category; ?>
+    </div>
+    <div class="span7">
+        <div class="attraction_grid">
+            <h3>Гостиницы города Ялты</h3>
+            <ul class="grid_restaurant cs-style-2">
+                <?php foreach($hostels as $hostel) :?>
+                    <li>
+                        <figure>
+                            <img width="450" height="100" class="main-image" src="<?php echo  $this->basePath() . substr($hostel->hostel_image,8); ?>" />
+                            <figcaption>
+                                <a href="<?php echo $this->url('hostel',
+                                    array('action'=>'hostel', 'hostel_name_route' => $hostel->hostel_name_route));?>"><?php echo $this->escapeHtml($hostel->hostel_name_route); ?></a><br/>
+                                     <span><b>Адресc:</b>   <span><?php echo $this->escapeHtml($hostel->hostel_address); ?></span>
+                                        <button class="button button-attraction-1" id="green">
+                                            Проложить маршрут
+                                        </button><br/>
+                                         <button class="button button-attraction-1" id="red" onclick="">
+                                             Добавить в маршрут
+                                         </button>
+                            </figcaption>
+                        </figure>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<?php
+$title = 'Добавить новый ресторан';
+$this->headTitle($title);
+?>
+<div class="container-fluid">
+    <div class="row-fluid">
+            <div class="span4">
+                        <!--Sidebar content-->
+                        <div class="sidebar_admin">
+                            <ul class="nav nav-tabs nav-stacked">
+                                <li><a>Достопримечательности</a></li>
+                                <li><a href="<?php  echo $this->url('zfcadmin/transport');?>">Транспорт</a></li>
+                                <li><a href="<?php  echo $this->url('zfcadmin/restaurants');?>">Рестораны/Кафе</a></li>
+                                <li><a>Клубы</a></li>
+                                <li><a>Активный отдых</a></li>
+                                <li><a>Шопинг</a></li>
+                                <li><a>Здоровье и спорт</a></li>
+                                <li><a>Гостиницы/минигостиницы</a></li>
+                                <li><a>Частный сектор</a></li>
+                                <li><a>Справочные и аварийные службы </a></li>
+                                <li><a>Aфиша</a></li>
+                                <li><a>Геолокации</a></li>
+                                <li><a>Личные кабинеты</a></li>
+                            </ul>
+                        </div>
+                        <!--Sidebar content-->
+            </div>
+            <div class="span8">
+                            <?php
+                                        $form = $this->form;
+                                        $form->setAttribute('action',$this->url('zfcadmin/restaurants/add'));
+                                        $form->prepare();
+
+                                        echo $this->form()->openTag($form);
+                                                echo $this->formHidden($form->get('id'));
+                                                echo $this->formRow($form->get('id_name'));
+                                                echo $this->formRow($form->get('name_restaurant'));
+                                                echo $this->formRow($form->get('mode_restaurant'));
+                                                echo $this->formRow($form->get('average_account'));
+                                                echo $this->formRow($form->get('description'));
+//                                                echo $this->formRow($form->get('thumbnail_image_restaurant'));
+
+                                                //http://framework.zend.com/manual/2.2/en/modules/zend.form.file-upload.html
+                                                $fileElement = $form->get('image-file');
+                                                echo $this->formLabel($fileElement);
+                                                echo $this->formFile($fileElement);
+                                                echo $this->formElementErrors($fileElement);
+                                                echo $this->formRow($form->get('direction_of_the_kitchen'));
+                                                echo $this->formRow($form->get('operation_time'));
+                                                echo $this->formRow($form->get('telephone'));
+                                                echo $this->formRow($form->get('address'));
+                                                echo $this->formRow($form->get('site'));
+                                                echo $this->formRow($form->get('longitude'));
+                                                echo $this->formRow($form->get('latitude'));
+                                                echo $this->formRow($form->get('wifi'));
+                                                echo $this->formRow($form->get('summer_terrace'));
+                                                echo $this->formRow($form->get('hookah'));
+                                                echo $this->formRow($form->get('DJ'));
+                                                echo $this->formRow($form->get('parking'));
+                                                echo $this->formRow($form->get('karaoke'));
+                                                echo $this->formSubmit($form->get('submit'));
+                                        echo $this->form()->closeTag();
+                            ?>
+                     </div>
+                </div>
+    </div>

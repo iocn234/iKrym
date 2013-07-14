@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <h1>Добро пожаловать на главную административную панель интернет-портала города Ялты!</h1>
+    <div class="row-fluid">
+        <div class="span4">
+            <!--Sidebar content-->
+                    <!--Sidebar content-->
+                    <div class="sidebar_admin">
+                        <ul class="nav nav-tabs nav-stacked">
+                            <li><a href="<?php  echo $this->url('zfcadmin/attraction');?>">Достопримечательности</a></li>
+                            <li><a href="<?php  echo $this->url('zfcadmin/transport');?>">Транспорт</a></li>
+                            <li><a href="<?php  echo $this->url('zfcadmin/restaurants');?>">Рестораны/Кафе</a></li>
+                            <li><a>Клубы</a></li>
+                            <li><a>Активный отдых</a></li>
+                            <li><a>Шопинг</a></li>
+                            <li><a>Здоровье и спорт</a></li>
+                            <li><a href="<?php  echo $this->url('zfcadmin/hostels'); ?>">Гостиницы/минигостиницы</a></li>
+                            <li><a>Частный сектор</a></li>
+                            <li><a>Справочные и аварийные службы </a></li>
+                            <li><a>Aфиша</a></li>
+                            <li><a>Геолокации</a></li>
+                            <li><a>Личные кабинеты</a></li>
+                            <li><a>Тестовая таблица</a></li>
+                        </ul>
+                    </div>
+                    <!--Sidebar content-->
+            <!--Sidebar content-->
+        </div>
+        <div class="span8">
+            <!--Body content-->
+                <?php echo $content_admin; ?>
+            <!--Body content-->
+
+        </div>
+    </div>
+</div>

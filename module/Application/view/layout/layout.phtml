@@ -1,0 +1,39 @@
+<?php echo $this->doctype(); ?>
+<html lang="en">
+<head>
+
+    <?php echo $this->headTitle('Yalta '. $this->translate('Yalta guide'))->setSeparator(' - ')->setAutoEscape(false) ?>
+    <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+    <?php echo $this->headMeta()->setCharset('UTF-8') ?>
+
+    <?php echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+//        ->prependStylesheet($this->basePath() . '/css/bootstrap-responsive.min.css')
+        ->prependStylesheet($this->basePath() . '/css/de_lovely.css')
+        ->prependStylesheet('http://fonts.googleapis.com/css?family=Noto+Serif&subset=latin,cyrillic')
+        ->prependStylesheet($this->basePath() . '/css/bootstrap.min.css')
+        ->prependStylesheet($this->basePath() . '/css/jquery-ui.css')
+//       ->prependStylesheet($this->basePath() . '/less/social.less')
+    ?>
+    <!-- Scripts -->
+    <?php echo $this->headScript()->prependFile($this->basePath() . '/js/html5.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+        ->prependFile($this->basePath() . '/js/maps.js')
+        ->prependFile($this->basePath() . '/js/openapi_simple.js')
+        ->prependFile('//vk.com/js/common.js')
+        ->prependFile('http://vk.com/js/api/openapi.js')
+        ->prependFile($this->basePath() . '/js/bootstrap.min.js')
+        ->prependFile($this->basePath().'/js/jquery-ui.js')
+        ->prependFile($this->basePath() . '/js/jquery.min.js')
+
+    ?>
+
+    <link href='http://fonts.googleapis.com/css?family=Noto+Serif&subset=cyrillic' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+<?php echo $this->content; ?>
+<?php echo $this->inlineScript() ?>
+
+
+
+</body>
+</html>

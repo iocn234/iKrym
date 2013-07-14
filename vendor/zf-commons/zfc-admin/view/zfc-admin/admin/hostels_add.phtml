@@ -1,0 +1,58 @@
+<?php
+$title = 'Добавить новую гостинницу';
+$this->headTitle($title);
+?>
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span4">
+            <!--Sidebar content-->
+            <div class="sidebar_admin">
+                <ul class="nav nav-tabs nav-stacked">
+                    <li><a>Достопримечательности</a></li>
+                    <li><a href="<?php  echo $this->url('zfcadmin/transport');?>">Транспорт</a></li>
+                    <li><a href="<?php  echo $this->url('zfcadmin/restaurants');?>">Рестораны/Кафе</a></li>
+                    <li><a>Клубы</a></li>
+                    <li><a>Активный отдых</a></li>
+                    <li><a>Шопинг</a></li>
+                    <li><a>Здоровье и спорт</a></li>
+                    <li><a href="<?php  echo $this->url('zfcadmin/hostels');?>">Гостиницы/минигостиницы</a></li>
+                    <li><a>Частный сектор</a></li>
+                    <li><a>Справочные и аварийные службы </a></li>
+                    <li><a>Aфиша</a></li>
+                    <li><a>Геолокации</a></li>
+                    <li><a>Личные кабинеты</a></li>
+                </ul>
+            </div>
+            <!--Sidebar content-->
+        </div>
+        <div class="span8">
+
+            <h1>Добавить гостиницу</h1>
+            <?php
+                    $form = $this->form;
+                    $form->setAttribute('action',$this->url('zfcadmin/hostels/add'));
+                    $form->prepare();
+
+                    echo $this->form()->openTag($form);
+                    echo $this->formHidden($form->get('hostel_id'));
+                    echo $this->formRow($form->get('hostel_name_route'));
+                    echo $this->formRow($form->get('hostel_name'));
+                    echo $this->formRow($form->get('hostel_image'));
+                    echo $this->formRow($form->get('hostel_description'));
+                    echo $this->formRow($form->get('hostel_start_count'));
+                    echo $this->formRow($form->get('hostel_longitude'));
+                    echo $this->formRow($form->get('hostel_latitude'));
+                    echo $this->formRow($form->get('hostel_features'));
+                    echo $this->formRow($form->get('hostel_site'));
+                    echo $this->formRow($form->get('hostel_address'));
+                    echo $this->formRow($form->get('hostel_telephone'));
+                    echo $this->formRow($form->get('hostel_work_time'));
+
+            ?><br/>
+            <?
+            echo $this->formSubmit($form->get('submit'));
+            echo $this->form()->closeTag();
+            ?>
+        </div>
+    </div>
+</div>

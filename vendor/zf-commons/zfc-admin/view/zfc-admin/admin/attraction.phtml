@@ -1,0 +1,53 @@
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span4">
+            <!--Sidebar content-->
+            <div class="sidebar_admin">
+                <ul class="nav nav-tabs nav-stacked">
+                    <li><a href="<?php  echo $this->url('zfcadmin/attraction'); ?>"><b>Достопримечательности</b></a></li>
+                    <li><a href="<?php  echo $this->url('zfcadmin/transport');?>">Транспорт</a></li>
+                    <li><a href="<?php  echo $this->url('zfcadmin/restaurants');?>">Рестораны/Кафе</a></li>
+                    <li><a>Клубы</a></li>
+                    <li><a>Активный отдых</a></li>
+                    <li><a>Шопинг</a></li>
+                    <li><a>Здоровье и спорт</a></li>
+                    <li><a>Гостиницы/минигостиницы</a></li>
+                    <li><a>Частный сектор</a></li>
+                    <li><a>Справочные и аварийные службы </a></li>
+                    <li><a>Aфиша</a></li>
+                    <li><a>Геолокации</a></li>
+                    <li><a>Личные кабинеты</a></li>
+                </ul>
+            </div>
+            <!--Sidebar content-->
+        </div>
+        <div class="span8">
+            <!--Body content-->
+            <h1>Cписок достопримечательной города Ялты</h1>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Назва достопримечательности</th>
+                        <th>Адрес</th>
+                        <th>Описание</th>
+                        <th>Фото</th>
+                        <th>VK</th>
+                        <th>Facebook</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($attraction_table as $attraction) : ?>
+                            <tr>
+                                <td><?php echo $attraction->attraction_name; ?></td>
+                                <td><?php echo $attraction->attraction_address; ?></td>
+                                <td><?php echo $attraction->attraction_description; ?></td>
+                                <td><?php echo $this->escapeHtml($attraction->attraction_main_photo); ?></td>
+                                <td><?php echo  $attraction->attraction_vk; ?></td>
+                                <td><?php echo  $attraction->attraction_facebook; ?></td>
+                            </tr>
+                 <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

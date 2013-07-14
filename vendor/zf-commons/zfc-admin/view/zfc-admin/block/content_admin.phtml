@@ -1,0 +1,44 @@
+<div class="content_admin">
+    <h3>Тестовая проверка использования метода $.ajax()</h3>
+    <table id="table_reserve_table" class="table table-bordered">
+
+    </table>
+</div>
+<script>
+    $(document).ready(function(){
+
+        $('#table_reserve_table').append('<thead>' +
+                    '<th>Имя заказчика</th>' +
+                    '<th>Количество человек</th>' +
+                    '<th>Номер телефона заказчика</th>' +
+            '</thead>'+'<tbody></tbody>');
+             $.ajax(
+                        {
+                            type:"GET",
+                            url:"http://s-group.in.ua/yalta/public/json/data.json",
+                            dataType:"json",
+                            success:function(data){
+                                $.each(data.reservation_tables,function(i){
+                                    console.log(data.reservation_tables[i].name_reservation_table);
+                                    //http://api.jquery.com/add/
+
+                                  $('#table_reserve_table').append('<tr>' +
+                                      '<td>' +
+                                         data.reservation_tables[i].name_reservation_table +
+                                      '</td>' +
+                                      '<td>'+
+                                          data.reservation_tables[i].peoples_reservation_table+
+                                      '</td>'+
+                                      '<td>' +
+                                          data.reservation_tables[i].telephone_reservation_table+
+                                      '</td>'+
+                                  '</tr>');
+
+
+
+                                });
+                            }
+                        });
+
+              });
+</script>
