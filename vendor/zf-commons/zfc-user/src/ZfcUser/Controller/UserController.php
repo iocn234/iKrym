@@ -19,6 +19,10 @@ class UserController extends AbstractActionController
 
     const CONTROLLER_NAME    = 'zfcuser';
 
+    const MAIN_PAGE = 'home';
+
+    const ADMIN_PAGE = "zfcadmin";
+
     /**
      * @var UserService
      */
@@ -72,15 +76,14 @@ class UserController extends AbstractActionController
      */
     public function loginAction()
     {
+
         $request = $this->getRequest();
         $form    = $this->getLoginForm();
-
         if ($this->getOptions()->getUseRedirectParameterIfPresent() && $request->getQuery()->get('redirect')) {
             $redirect = $request->getQuery()->get('redirect');
         } else {
             $redirect = false;
         }
-
         if (!$request->isPost()) {
             return array(
                 'loginForm' => $form,
@@ -91,9 +94,25 @@ class UserController extends AbstractActionController
 
         $form->setData($request->getPost());
 
-        if (!$form->isValid()) {
+
+        if($form->isValid()){
+
+                //http://stackoverflow.com/questions/12367153/get-the-posted-data-from-form-in-zend-framework-2
+                //Проверка на вход в административную панель
+                //Позже будет заменена на отдельный модуль Admin,который будет аналогом ZfcUser только для администраторов
+                $admin_email_value = $form->get('identity')->getValue();
+                $admin_password_value = $form->get('credential')->getValue();
+                 if($admin_email_value == "admin@admin.com" && $admin_password_value =="adminadmin"){
+                     return $this->redirect()->toUrl($this->url()->fromRoute(static::ADMIN_PAGE));
+                 }
+                 else{
+                     return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN));
+                 }
+        }
+        else{
+
             $this->flashMessenger()->setNamespace('zfcuser-login-form')->addMessage($this->failedLoginMessage);
-            return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN).($redirect ? '?redirect='.$redirect : ''));
+            return $this->redirect()->toUrl($this->url()->fromRoute(static::MAIN_PAGE));
         }
 
         // clear adapters
@@ -115,6 +134,7 @@ class UserController extends AbstractActionController
         $redirect = $this->params()->fromPost('redirect', $this->params()->fromQuery('redirect', false));
 
         if ($this->getOptions()->getUseRedirectParameterIfPresent() && $redirect) {
+
             return $this->redirect()->toUrl($redirect);
         }
 
@@ -147,6 +167,7 @@ class UserController extends AbstractActionController
             return $this->redirect()->toUrl($this->url()->fromRoute(static::ROUTE_LOGIN)
                 . ($redirect ? '?redirect='.$redirect : ''));
         }
+
 
         if ($this->getOptions()->getUseRedirectParameterIfPresent() && $redirect) {
             return $this->redirect()->toUrl($redirect);

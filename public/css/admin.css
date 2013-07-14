@@ -1,0 +1,32 @@
+/*      http://s-group.in.ua/yalta/public/      */
+.admin_panel{
+    margin-top:3%;
+}
+.admin_panel  a{
+    color:#009999;
+    font-family:'asenine_cyrillicregular';
+    font-size:21px;
+    margin-top:7px;
+
+}
+/*   http://s-group.in.ua/yalta/public/user/login   */
+.login_user{
+        position:relative;
+        /*left:32%;*/
+        /*top:7%;*/
+        font: 20px 'glametrixregular';
+        /*width:38%;*/
+        text-align:center;
+        background:url('http://s-group.in.ua/yalta/public/img/bg-top1.jpg');
+        background-repeat:repeat-x;
+        height:189px;
+        margin:0 auto;
+        width:100%;
+        bottom:1%;
+        padding-top:15%;
+}
+.login_user .zend_form dt label{
+        font-size:30px;
+        margin:0;
+        padding:8px;
+}

@@ -23,7 +23,7 @@ class Login extends ProvidesEventsForm
         $this->add(array(
             'name' => 'identity',
             'options' => array(
-                'label' => '',
+                'label' => 'Електронный адрес',
             ),
             'attributes' => array(
                 'type' => 'text'
@@ -34,14 +34,14 @@ class Login extends ProvidesEventsForm
         $label = $emailElement->getLabel('label');
         // @TODO: make translation-friendly
         foreach ($this->getAuthenticationOptions()->getAuthIdentityFields() as $mode) {
-            $label = (!empty($label) ? $label . ' or ' : '') . ucfirst($mode);
+            $label = $label;
         }
         $emailElement->setLabel($label);
         //
         $this->add(array(
             'name' => 'credential',
             'options' => array(
-                'label' => 'Password',
+                'label' => 'Пароль',
             ),
             'attributes' => array(
                 'type' => 'password',
@@ -59,9 +59,10 @@ class Login extends ProvidesEventsForm
 
         $submitElement = new Element\Button('submit');
         $submitElement
-            ->setLabel('Sign In')
+            ->setLabel('Зайти в админ панель')
             ->setAttributes(array(
                 'type'  => 'submit',
+                'class' => 'login_user_button'
             ));
 
         $this->add($submitElement, array(
